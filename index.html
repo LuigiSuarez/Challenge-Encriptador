@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Encriptador</title>
+</head>
+<body>
+    <div class="container">
+        <div class="izquierda">
+            <nav>
+                <a style="text-decoration: none;" href="#"><span>a</span></a>
+            </nav>
+            
+            <br>
+            
+            <textarea name="mensaje" placeholder="ingresa tu texto aqui" id="textoIzquierdo" cols="30" rows="10"></textarea>
+            
+            <br>
+            
+            <div id="botones_containers">
+                <button type="button" id="encriptar">encriptar</button>
+                <button type="button" id="desencriptar">desencriptar</button>
+            </div>
+        </div>
+        
+        <div class="derecha">
+            <div class="derecha_top"></div>
+            <textarea name="mensaje" placeholder="Aqui veras el texto encriptado" id="textoDerecho" cols="30" rows="10"></textarea>
+            <p>el mensaje solo debe contener minusculas</p>
+            <div id="botones_containers">
+                <button type="button" id="copiarTexto">copiar texto</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid bottom-0 fixed-bottom">
+        <div class="row " >
+            <br>
+            Realizado Por Luigi.S
+            
+        </div>
+    </footer>
+    
+    <script>
+        // Obtenemos las referencias a los elementos del DOM
+        const encriptarBtn = document.getElementById('encriptar');
+        const desencriptarBtn = document.getElementById('desencriptar');
+        const textoIzquierdo = document.getElementById('textoIzquierdo');
+        const textoDerecho = document.getElementById('textoDerecho');
+        const copiarTextoBtn = document.getElementById('copiarTexto');
+
+        // Función para encriptar el texto
+        function encriptarTexto() {
+            const texto = textoIzquierdo.value;
+            const textoEncriptado = texto.replace(/[aeiou]/g, function (match) {
+                const vocales = ['a', 'e', 'i', 'o', 'u'];
+                const numeros = ['ai', 'enter', 'imes', 'ober', 'ufat'];
+                const indice = vocales.indexOf(match);
+                return numeros[indice];
+            });
+            textoDerecho.value = textoEncriptado;
+        }
+
+        // Función para desencriptar el texto
+        function desencriptarTexto() {
+            const texto = textoIzquierdo.value;
+            const textoDesencriptado = texto.replace(/(ai|enter|imes|ober|ufat)/g, function (match) {
+                const numeros = ['ai', 'enter', 'imes', 'ober', 'ufat'];
+                const vocales = ['a', 'e', 'i', 'o', 'u'];
+                const indice = numeros.indexOf(match);
+                return vocales[indice];
+            });
+            textoDerecho.value = textoDesencriptado;
+        }
+
+        // Función para copiar el texto en el textarea derecho
+        function copiarTexto() {
+            textoDerecho.select();
+            document.execCommand('copy');
+        }
+
+        // Agregamos los event listeners
+        encriptarBtn.addEventListener('click', encriptarTexto);
+        desencriptarBtn.addEventListener('click', desencriptarTexto);
+        copiarTextoBtn.addEventListener('click', copiarTexto);
+    </script>
+</body>
+
+
+</html>

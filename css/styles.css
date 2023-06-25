@@ -1,0 +1,122 @@
+.container{
+    display: flex;
+    
+   
+    width: 100%;
+    height: 800px;
+
+}
+.container nav{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    
+}
+
+.derecha_top{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+}
+
+
+.container span {
+    margin-top: 0px;
+    font-size: 60px;
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.container textarea{
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 80%;
+    height: 50%;
+}
+
+#botones_containers{
+    display: flex;
+    justify-content: center;
+   
+    height: 100px;
+    width: 100%;
+}
+
+#botones_containers button{
+    border-radius: 10px ;
+    margin: 20px;
+    border: none;
+    background-color: gray;
+    width: 200px;
+    padding: 10px;
+    text-transform: capitalize;
+    color: white;
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.4),-2px -2px 0px rgba(255, 255, 255, 0.2);
+}
+
+#botones_containers button:hover{
+    background-color: blue;
+    transition: 400ms;
+    
+}
+
+p::before{
+    content: "🐶";
+}
+
+
+.izquierda{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+
+}
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid black;
+    width: 40%;
+    height: 100%;
+}
+
+.derecha textarea{
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5%;
+    height: 60%;
+    
+}
+
+
+footer{
+    background-color: blueviolet;
+    text-align: center;
+    height: 50px;
+    color: white;
+   
+}
+
+
+@media screen and (max-width: 480px) {
+    
+    .container{
+        flex-direction: column;
+    }
+    .izquierda{
+        height: 70%;
+        width: 100%;
+    }
+    .derecha{
+        height: 30%;
+        width: 100%;
+        bottom: 0px;
+    }
+}
